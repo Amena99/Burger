@@ -1,32 +1,25 @@
 
+//data is jquery object specific for retrieving data attributes
+//short for .attr(data-id)
+$(function() {
+    $(".change-devoured").on("click", function(event){
+        const id = $(this).data("id");
+        console.log("const id js line 7" + id);
+        const newDevoured = $(this).data("newDevoured");
 
-// $(function(){
-    $(function renderHTML(){
-        const rawTemplate = document.getElementById("burger-list").innerHTML;
-        const compiledTemplate = Handlebars.compile(rawTemplate);
-        const generatedHTML = compiledTemplate(burgers);
+        const newDevouredState = {
+            devoured: newDevoured
+        }
 
-        const burgerContainer = document.getElementById("burgers-container");
-        burgerContainer.innerHTML = generatedHTML;
+    //Send the PUT request 
+    $.ajax("/api/burgers/"+id, {
+        type: "PUT", 
+        data: newDevouredState
+    }).then(
+        function(){
+            console.log("changed to devoured");
+            location.reload();
+        }
+    ); 
+    });
 });
-
-// $(".change-devoured").on("click", function(event){
-//         const id = $(this).data("id");
-//         const newDevoured = $(this).data("newdevoured");
-
-//         const newDevouredState = {
-//             devoured: newDevoured
-//         }
-
-//     //Send the PUT request 
-//     $.ajax("/api/burgers/"+id, {
-//         type: "PUT", 
-//         data: newDevouredState
-//     }).then(
-//         function(){
-//             console.log("changed to devoured");
-//             location.reload();
-//         }
-//     ); 
-//     });
-// });

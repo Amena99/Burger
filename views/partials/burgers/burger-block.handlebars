@@ -1,0 +1,15 @@
+<li>
+    <h4> {{burger_name}}</h4>
+    <button class="delete" data-id="{{id}}">
+        DELETE!
+    </button>
+        {{#if beDevoured}} <button class="change-devoured" data-id="{{id}}" data-newDevoured ="{{beDevoured}}">DEVOUR IT!</button>{{/if}}
+</li>
+
+{{!-- <script>
+$(function() {
+   
+
+}
+
+</script> --}}
