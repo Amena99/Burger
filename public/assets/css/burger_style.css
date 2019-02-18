@@ -1,0 +1,57 @@
+
+.container{
+    width: 90%;
+    /* background-color: ; */
+    border: orange;
+    border-width: 20px;
+}
+.page-header{
+    padding: 30px;
+    background-image: url("http://www.craftlakewood.com/images/slideshow/craft-slide.jpg");
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: orange;
+}
+.small-text-header{
+    color: orange;
+    font-size: 20px;
+}
+#burgers-list{
+    list-style-type: none;
+    float: center;
+    width: 75%;
+    padding: 10px;
+}
+h4{
+    padding: 5px;
+}
+h3{
+    padding: 5px;
+    text-align: center;
+}
+ul li .image{
+    background-position: bottom right;
+    background-image: url(http://www.craftlakewood.com/images/slideshow/craft-slide.jpg);
+    color: white;
+    /* opacity: 0.5; */
+    background-repeat: no-repeat;
+    /* background-position: center center; */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+span{
+    background-color: black;
+}
+.container-index{
+    border: 10px;
+    border-color: orange;
+}
+.header-main{
+    font-size: 50px;
+    font-weight: bolder;
+}

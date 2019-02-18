@@ -1,7 +1,10 @@
 <li>
-    <h4> {{burger_name}}</h4>
-    <button class="delete" data-id="{{id}}">
+<div class="image">
+    <h4> <span>{{burger_name}}</span></h4>
+    <button class="delete btn-sm btn btn-danger" data-id="{{id}}">
         DELETE!
+    
     </button>
-        {{#if beDevoured}} <button class="change-devoured" data-id="{{id}}" data-newDevoured ="{{beDevoured}}">DEVOUR IT!</button>{{/if}}
+        {{#if beDevoured}} <button class="change-devoured btn-sm btn btn-warning" data-id="{{id}}" data-newDevoured ="{{beDevoured}}">DEVOUR IT!</button>{{/if}}
+</div>
 </li>
