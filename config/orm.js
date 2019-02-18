@@ -1,5 +1,19 @@
 var connection = require("./connection.js");
 
+// Helper function for SQL syntax.
+// Let's say we want to pass 3 values into the mySQL query.
+// In order to write the query, we need 3 question marks.
+// The above helper function loops through and creates an array of question marks - ["?", "?", "?"] - and turns it into a string.
+// ["?", "?", "?"].toString() => "?,?,?";
+function printQuestionMarks(num) {
+    var arr = [];
+  
+    for (var i = 0; i < num; i++) {
+      arr.push("?");
+    }
+  
+    return arr.toString();
+  }
 
 // Helper function to convert object key/value pairs to SQL syntax
 function objToSql(ob) {
@@ -32,14 +46,27 @@ var orm = {
             cb(result);
         });
     },
-    insertOne: function (tableInput, colInput, valOfInsert) {
-        var queryString = "INSERT INTO ?? (??) VALUES (?);";
-        connection.query(queryString, [tableInput, colInput, valOfInsert], function (err, result) {
+
+    insertOne: function (tableInput, colInput, valOfInsert, cb) {
+        var queryString = "INSERT INTO " +tableInput;
+        queryString += " (";
+        queryString += colInput.toString();
+        queryString += ") ";
+        queryString += "VALUES (";
+        queryString += printQuestionMarks(valOfInsert.length);
+        queryString += ") ";
+        
+        console.log("queryString = " + queryString);
+        console.log("col input = "+ colInput);
+        console.log("valofInsert = "+ valOfInsert);
+        
+        connection.query(queryString, valOfInsert, function (err, result) {
             if (err) throw err;
-            console.log(result);
+            console.log("in connection.query = " + result);
+            cb(result);
         });
     },
-    updateOne: function (tableInput, objColVals, condition) {
+    updateOne: function (tableInput, objColVals, condition, cb) {
         var queryString = "UPDATE " + tableInput;
 
         queryString += " SET ";
@@ -50,6 +77,7 @@ var orm = {
         connection.query(queryString, function (err, result) {
             if (err) throw err;
             console.log(result);
+            cb(result);
         });
     },
     deleteOne: function(table, condition, cb) {
