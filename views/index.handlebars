@@ -14,6 +14,8 @@
   </div>
 
   <div class="col-md-4">
+    <div class="row">
+      <div class="col-md-6">
     <h2>Add a Burger</h2>
       <form class="create-form">
 
@@ -30,6 +32,22 @@
 
       <button class="submit-burger" type="submit">Add Burger</button>
     </form> 
+    </div>
+
+    {{!-- Update Burger --}}
+    {{!-- <div class="col-md-6">
+      <h2>Update a Burger</h2>
+        <form id="updateburger" class="button-size">
+          <select name="id">
+	        	{{#each burgers}}
+			      <option value="{{id}}">{{burger_name}}</option>
+		        {{/each}}
+	        </select>
+          <textarea type="text" name="burger" placeholder="Updated Burger"></textarea>
+          <button type="submit">Update Burger!</button>
+        </form>
+      </div> --}}
+    </div>
   </div>
 
 <div class="col-md-4">

@@ -17,11 +17,16 @@ var burger = {
             cb(res);
         });
     },
+    // updateBurger: function(val, condition,cb){
+    //     orm.updateBurger("burgers", val, condition, function(res){
+    //         cb(res);
+    //     });
+    // },
     deleteOne: function(condition, cb){
         orm.deleteOne("burgers", condition, function(res){
             cb(res);
         });
-    },
+    }
 }
 
 module.exports = burger;

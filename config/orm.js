@@ -80,6 +80,22 @@ var orm = {
             cb(result);
         });
     },
+    // updateBurger: function (tableInput, objColVals, condition, cb) {
+    //     console.log("logging line 84 in ORM")
+    //     console.log(val);
+    //     var queryString = "UPDATE " + tableInput;
+
+    //     queryString += " SET ";
+    //     queryString += objToSql(objColVals);
+    //     queryString += " WHERE ";
+    //     queryString += condition;
+
+    //     connection.query(queryString, function (err, result) {
+    //         if (err) throw err;
+    //         console.log(result);
+    //         cb(result);
+    //     });
+    // },
     deleteOne: function(table, condition, cb) {
         var queryString = "DELETE FROM " + table;
     
